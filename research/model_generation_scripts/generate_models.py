@@ -1,16 +1,14 @@
 
 import pandas as pd
-import numpy as np
 import pickle
 import os
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
 from sentence_transformers import SentenceTransformer
 
 # Paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
-CRIME_CSV_PATH = os.path.join(BASE_DIR, 'Crime Prediction', 'crime_kolkata.csv')
-BNS_CSV_PATH = os.path.join(BASE_DIR, 'FIR Automation', 'testing1.csv')
+CRIME_CSV_PATH = os.path.join(BASE_DIR, 'research', 'crime_prediction', 'crime_kolkata.csv')
+BNS_CSV_PATH = os.path.join(BASE_DIR, 'research', 'fir_research', 'testing1.csv')
 ASSETS_DIR = os.path.join(BASE_DIR, 'backend', 'assets')
 
 os.makedirs(ASSETS_DIR, exist_ok=True)
