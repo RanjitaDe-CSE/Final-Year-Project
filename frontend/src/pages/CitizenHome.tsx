@@ -9,55 +9,30 @@ const emergencyContacts = [
     number: "100",
     description: "For reporting crimes & law enforcement emergencies",
     icon: Shield,
-    gradient: "from-blue-600 to-blue-800",
-    bgLight: "bg-blue-50",
-    textColor: "text-blue-700",
-    borderColor: "border-blue-200",
-    ringColor: "ring-blue-500",
   },
   {
     name: "Ambulance",
     number: "102",
     description: "For medical emergencies & hospital transport",
     icon: Ambulance,
-    gradient: "from-red-500 to-red-700",
-    bgLight: "bg-red-50",
-    textColor: "text-red-700",
-    borderColor: "border-red-200",
-    ringColor: "ring-red-500",
   },
   {
     name: "Women's Helpline",
     number: "181",
     description: "24/7 support for women in distress",
     icon: ShieldAlert,
-    gradient: "from-purple-500 to-purple-700",
-    bgLight: "bg-purple-50",
-    textColor: "text-purple-700",
-    borderColor: "border-purple-200",
-    ringColor: "ring-purple-500",
   },
   {
     name: "Cybercrime Helpline",
     number: "1930",
     description: "Report online fraud, hacking & cyber threats",
     icon: Monitor,
-    gradient: "from-emerald-500 to-emerald-700",
-    bgLight: "bg-emerald-50",
-    textColor: "text-emerald-700",
-    borderColor: "border-emerald-200",
-    ringColor: "ring-emerald-500",
   },
   {
     name: "National Helpline",
     number: "112",
     description: "Unified national emergency helpline for all services",
     icon: Phone,
-    gradient: "from-gray-700 to-gray-900",
-    bgLight: "bg-gray-50",
-    textColor: "text-gray-700",
-    borderColor: "border-gray-300",
-    ringColor: "ring-gray-500",
   },
 ];
 
@@ -125,8 +100,8 @@ const CitizenHome = () => {
       <section className="py-12 px-4 bg-white border-t border-gray-100">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-red-100 rounded-lg">
-              <Phone className="w-6 h-6 text-red-600" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Phone className="w-6 h-6 text-primary" />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-800">
@@ -145,20 +120,19 @@ const CitizenHome = () => {
                 <a
                   key={contact.number}
                   href={`tel:${contact.number}`}
-                  className={`group relative overflow-hidden rounded-xl border ${contact.borderColor} ${contact.bgLight} p-5 transition-all duration-300 hover:shadow-xl hover:scale-[1.03] hover:ring-2 ${contact.ringColor} focus:outline-none focus:ring-2 ${contact.ringColor}`}
+                  className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-5 transition-all duration-300 hover:shadow-lg hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  {/* Gradient accent bar */}
-                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${contact.gradient}`} />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
 
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${contact.gradient} shadow-lg group-hover:shadow-xl transition-shadow`}>
-                      <IconComponent className="w-6 h-6 text-white" />
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary transition-colors">
+                      <IconComponent className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-bold text-base ${contact.textColor}`}>
+                      <h3 className="font-bold text-base text-gray-900 group-hover:text-primary transition-colors">
                         {contact.name}
                       </h3>
-                      <p className={`text-2xl font-extrabold tracking-wide ${contact.textColor} mt-1`}>
+                      <p className="text-2xl font-extrabold tracking-wide text-gray-900 mt-1">
                         {contact.number}
                       </p>
                     </div>
@@ -167,8 +141,6 @@ const CitizenHome = () => {
                   <p className="text-xs text-gray-500 mt-3 leading-relaxed">
                     {contact.description}
                   </p>
-
-
                 </a>
               );
             })}
