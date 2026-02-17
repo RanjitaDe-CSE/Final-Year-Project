@@ -36,7 +36,10 @@ const CitizenLogin = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div
+      className="flex flex-col min-h-screen bg-background bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/login-bg.jpg')" }}
+    >
       <Navbar />
       <main className="flex-grow flex items-center justify-center p-4">
         <div className="w-full max-w-md p-8 bg-card rounded-lg shadow-xl border border-border">

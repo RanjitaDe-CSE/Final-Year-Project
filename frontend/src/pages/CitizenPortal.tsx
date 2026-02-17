@@ -149,11 +149,10 @@ const CitizenPortal = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${
-                activeTab === tab
+              className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${activeTab === tab
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:bg-background/50"
-              }`}
+                }`}
             >
               {tab === "services" && "Services"}
               {tab === "new-fir" && "File FIR"}
@@ -291,7 +290,7 @@ const NewFIRTab: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
   return (
     <div className="max-w-2xl mx-auto bg-card p-8 rounded-lg border border-border official-card">
       <h2 className="text-2xl font-bold mb-6 text-blue-900">File a New FIR</h2>
-      
+
       {/* Legal Warning */}
       <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6">
         <div className="flex items-start">
@@ -566,20 +565,19 @@ const HistoryTab = () => {
               </div>
               <div className="flex flex-col items-end gap-2 min-w-[120px]">
                 <span
-                  className={`px-3 py-1 rounded-full text-xs font-bold uppercase self-end ${
-                    fir.status === "pending"
+                  className={`px-3 py-1 rounded-full text-xs font-bold uppercase self-end ${fir.status === "pending"
                       ? "bg-yellow-100 text-yellow-800"
                       : fir.status === "accepted"
                         ? "bg-blue-100 text-blue-800"
                         : fir.status === "resolved"
                           ? "bg-green-100 text-green-800"
                           : "bg-gray-100"
-                  }`}
+                    }`}
                 >
                   {fir.status.replace("_", " ")}
                 </span>
 
-                {fir.status === "resolved" && (
+                {(fir.status === "resolved" || fir.status === "accepted") && (
                   <div className="mt-auto pt-4">
                     <button
                       onClick={() => generateFIRPDF(fir)}
